@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MageTitans\ProductStatus\Model\ProductStatusAdapterInterface" type="MageTitans\ProductStatus\Model\ProductStatusAdapter\Proxy"/>
+    <preference for="MageTitans\ProductStatus\Api\ProductStatusManagementInterface" type="MageTitans\ProductStatus\Model\ProductStatusManagement"/>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="catalogProductStatus" xsi:type="object">MageTitans\ProductStatus\Console\Command\ProductStatusCommand</item>
+                <item name="catalogProductDisable" xsi:type="object">MageTitans\ProductStatus\Console\Command\DisableProductCommand</item>
+                <item name="catalogProductEnable" xsi:type="object">MageTitans\ProductStatus\Console\Command\EnableProductCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
